@@ -6,13 +6,13 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  input: string;
+  url: string;
   output: string;
 
   constructor(private coreService: CoreService) { }
 
   submit() {
-    this.output = this.coreService.getData();
+    this.coreService.getData(this.url).subscribe(x => console.log(x));
   }
 }
 

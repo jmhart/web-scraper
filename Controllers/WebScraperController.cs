@@ -13,9 +13,11 @@ namespace WebScraper
         [HttpGet]
         public IActionResult Get([FromQuery(Name = "url")] string url)
         {
+            var scraper = new Scraper(url);
             var urlResource = new UrlResource()
             {
-                Url = url
+                Url = url,
+                Html = scraper.GetHtml()
             };
             return Ok(urlResource);
         }

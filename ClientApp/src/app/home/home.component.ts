@@ -12,7 +12,9 @@ export class HomeComponent {
   constructor(private coreService: CoreService) { }
 
   submit() {
-    this.coreService.getData(this.url).subscribe(x => console.log(x));
+    this.coreService.getData(this.url).subscribe(x => {
+      this.output = x.html;
+    });
   }
 }
 

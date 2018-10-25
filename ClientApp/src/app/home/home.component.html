@@ -2,16 +2,16 @@
 
 <p>
   <label>Enter URL</label>
-  <input type="text" class="form-control">
+  <input [(ngModel)]="input" type="text" class="form-control">
 </p>
 
 <p>
-  <button (onClick)="submit()" class="btn btn-primary">Submit</button>
+  <button (click)="submit()" class="btn btn-primary">Submit</button>
 </p>
 
 <div class="input-group">
   <div class="input-group-prepend">
     <span class="input-group-text">Output</span>
   </div>
-  <textarea class="form-control" aria-label="With textarea"></textarea>
+  <textarea class="form-control" aria-label="With textarea">{{ output }}</textarea>
 </div>

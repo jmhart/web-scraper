@@ -1,3 +1,4 @@
+import { CoreService } from './../services/core.service';
 import { Component } from '@angular/core';
 
 @Component({
@@ -5,6 +6,17 @@ import { Component } from '@angular/core';
   templateUrl: './home.component.html',
 })
 export class HomeComponent {
-  input;
-  output;
+  input: string;
+  output: string;
+
+  constructor(private coreService: CoreService) { }
+
+  submit() {
+    this.output = this.coreService.getData();
+  }
 }
+
+
+
+
+

@@ -7,13 +7,13 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   url: string;
-  output: string;
+  data;
 
   constructor(private coreService: CoreService) { }
 
   submit() {
     this.coreService.getData(this.url).subscribe(x => {
-      this.output = x.html;
+      this.data = x;
     });
   }
 }

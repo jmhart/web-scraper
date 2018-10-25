@@ -15,7 +15,7 @@ namespace WebScraper
             string htmlCode = string.Empty;
             using (WebClient client = new WebClient())
             {
-                htmlCode = client.DownloadString("http://google.com");
+                htmlCode = client.DownloadString(url);
             }
             return htmlCode;
         }

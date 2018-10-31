@@ -1,3 +1,4 @@
+import { UrlData } from './../models/url-data';
 import { CoreService } from './../services/core.service';
 import { Component } from '@angular/core';
 
@@ -7,14 +8,24 @@ import { Component } from '@angular/core';
 })
 export class HomeComponent {
   url: string;
-  data;
+  data: UrlData = {
+    url: '',
+    html: ''
+  };
+  isDisabled: boolean;
 
   constructor(private coreService: CoreService) { }
 
   submit() {
-    this.coreService.getData(this.url).subscribe(x => {
-      this.data = x;
-    });
+    this.isDisabled = true;
+    this.coreService.getData(this.url)
+      .subscribe(data => {
+        this.data = data;
+      }, error => {
+        alert("Error");
+      }, () => {
+        this.isDisabled = false;
+      });
   }
 }
 

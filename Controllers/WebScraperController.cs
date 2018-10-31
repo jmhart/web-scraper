@@ -6,13 +6,12 @@ namespace WebScraper
     [Route("api/web-scraper")]
     public class WebScraperController : Controller
     {
-        public WebScraperController()
-        {
-        }
-
         [HttpGet]
         public IActionResult Get([FromQuery(Name = "url")] string url)
         {
+            if (url == null)
+                return BadRequest();
+
             var scraper = new Scraper(url);
             var urlResource = new UrlResource()
             {

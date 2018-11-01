@@ -23,6 +23,7 @@ export class HomeComponent {
         this.data = data;
       }, error => {
         alert("Error");
+        this.isDisabled = false;
       }, () => {
         this.isDisabled = false;
       });
